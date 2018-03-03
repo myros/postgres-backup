@@ -1,0 +1,25 @@
+
+version: "2"
+
+services:
+  pgbackups:
+    image: postgres-backup
+    volumes:
+      - ~/backups/pg:/backups
+
+    environment:
+      DUMPPREFIX: pg_
+      PG_USER: docker
+      PG_PASSWORD: docker
+      PG_PORT: 5432
+      PG_HOST: postgres
+      PG_DB: mag_era_test; mag_era_dev
+      PG_EXTRA_OPTS: "-w -Fc"
+      SCHEDULE: "@every 1m"
+      SLACK_CHANNEL: "backups"
+      SLACK_HOST: "https://hooks.slack.com/services/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"
+
+networks:
+  default:
+    external:
+      name: maginfo
