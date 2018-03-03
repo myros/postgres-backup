@@ -3,7 +3,7 @@ version: "2"
 
 services:
   pgbackups:
-    image: postgres-backup
+    image: myros/postgres-backup
     volumes:
       - ./backups/pg:/backups
 
