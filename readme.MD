@@ -128,3 +128,4 @@ To restore database from a certain backup, simply run:
 
 * S3 upload/download
 * sending emails
+* proper restore & import 
