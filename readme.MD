@@ -15,6 +15,12 @@ If SLACK vars are set, SLACK channel will be notified.
         --volume /host_folder:/backups
         myros/postgres-backup
 
+## Periodic backups
+
+You can change the SCHEDULE environment variable like -e SCHEDULE="@daily" or SCHEDULE="@every 6h" to change its default frequency, by default is daily.
+
+More information about the scheduling can be found [here](https://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules).
+
 ## Required variables
 
   PG_HOST      the host/ip of your postgres database
@@ -60,9 +66,9 @@ networks:
 
 ## One time backup
 
-`
-docker run myros/postgres-backup sh backup.sh
-`
+```
+docker run docker run -e PG_HOST=postgres -e PG_DB=dbname -e PG_USER=user -e PG_PASSWORD=password  myros/docker-postgres-backup sh backup.sh
+```
 
 ## Restore from a backup
 
@@ -72,4 +78,7 @@ To see the list of backups, you can run:
 
 To restore database from a certain backup, simply run:
 
-    docker exec docker-postgres-backup /restore.sh /backup/2015.08.06.171901
+
+```
+    docker run docker run -e PG_HOST=postgres -e PG_DB=dbname -e PG_USER=user -e PG_PASSWORD=password  myros/docker-postgres-backup /restore.sh /backups/PATH_TO_YOUR_FILE
+```
