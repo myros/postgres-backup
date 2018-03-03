@@ -30,11 +30,15 @@ PG_PORT | the port number of your postgres database
 PG_USER | the username of your postgres database
 PG_PASSWORD | the password of your postgres database
 PG_DB | the database name(s) to dump. If you want to use multiple databases, delimit with ";"
-EXTRA_OPTS | the extra options to pass to pg_dump command
-SCHEDULE | the interval of cron job to run pg_dump. `@daily` by default, which is every day at 00:00. More information on cron.
-SCHEDULE | every 1h
 
-### Slack variables
+### Optional variables
+
+Variable | Description
+--- | ---
+EXTRA_OPTS | the extra options to pass to pg_dump command
+SCHEDULE | the interval of cron job to run pg_dump. `@daily` by default, which is every day at 00:00.
+
+### Slack variables (optional)
 
 Variable | Description
 --- | ---
