@@ -23,17 +23,24 @@ More information about the scheduling can be found [here](https://godoc.org/gith
 
 ## Required variables
 
-  * PG_HOST      the host/ip of your postgres database
-  * PG_PORT      the port number of your postgres database
-  * PG_USER      the username of your postgres database
-  * PG_PASSWORD      the password of your postgres database
-  * PG_DB        the database name(s) to dump. If you want to use multiple databases, delimit with ";"
-  eg1. database_name
-  eg2. database_name1; database_name2; database_name3
-  * EXTRA_OPTS      the extra options to pass to pg_dump command
-  * SCHEDULE       the interval of cron job to run pg_dump. `@daily` by default, which is every day at 00:00. More information on cron.
-  * SCHEDULE=@every 1h
+Variable | Description
+--- | ---
+PG_HOST | the host/ip of your postgres database
+PG_PORT | the port number of your postgres database
+PG_USER | the username of your postgres database
+PG_PASSWORD | the password of your postgres database
+PG_DB | the database name(s) to dump. If you want to use multiple databases, delimit with ";"
+EXTRA_OPTS | the extra options to pass to pg_dump command
+SCHEDULE | the interval of cron job to run pg_dump. `@daily` by default, which is every day at 00:00. More information on cron.
+SCHEDULE | every 1h
 
+### Slack variables
+
+Variable | Description
+--- | ---
+SLACK_CHANNEL | Slack channel
+SLACK_HOST | Slack webhook
+SLACK_MESSAGE | Message that will be posted. Default message: `Database backup done (2018.03.03) (database1; database2...)`
 
 ## Docker compose
 
