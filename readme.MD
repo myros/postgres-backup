@@ -73,23 +73,42 @@ networks:
       name: NAME_OF_YOUR_POSTGRES_NETWORK
 ```
 
-## One time backup
+## One time backups
 
 #### Just backup
+
 ```
-docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432  myros/postgres-backup /backup.sh
+  docker run -e PG_HOST=postgres \
+    -e PG_DB=mag_era_dev \
+    -e PG_USER=docker \
+    -e PG_PASSWORD=docker \
+    -e PG_PORT=5432 \
+    myros/postgres-backup /backup.sh
 ```
 
 #### With network
 
 ```
-docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432 --network maginfo myros/postgres-backup /backup.sh
+  docker run -e PG_HOST=postgres \
+    -e PG_DB=mag_era_dev \
+    -e PG_USER=docker \
+    -e PG_PASSWORD=docker \
+    -e PG_PORT=5432 \
+    --network YOUR_PG_NETWORK \
+    myros/postgres-backup /backup.sh
 ```
 
 #### With network and Slack
 
 ```
-docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432 -e SLACK_HOST=SLACK_WEBHOOK_URL -e SLACK_CHANNEL=backups --network maginfo myros/postgres-backup /backup.sh
+  docker run -e PG_HOST=postgres \
+    -e PG_DB=mag_era_dev \
+    -e PG_USER=docker \
+    -e PG_PASSWORD=docker \
+    -e PG_PORT=5432 \
+    -e SLACK_HOST=SLACK_WEBHOOK_URL \
+    -e SLACK_CHANNEL=backups --network YOUR_PG_NETWORK \
+    myros/postgres-backup /backup.sh
 ```
 
 ## Restore from a backup
