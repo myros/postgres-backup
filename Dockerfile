@@ -36,9 +36,6 @@ ENV \
     BACKUP_KEEP_WEEKS \
     BACKUP_KEEP_MONTHS
 
-ENV CRON_TIME="0 0 * * *" \
-  PG_DB="--all-databases"
-
 VOLUME /backups
 
 ADD s3cfg /root/.s3cfg
