@@ -89,7 +89,7 @@ done
 if [ ! -z $SLACK_HOST ] && [ ! -z $SLACK_CHANNEL ]; then
   echo "Notifying slack..."
   CURRENT_DATE=`date +%Y.%m.%d`
-  MESSAGE=${SLACK_MESSAGE:-Database backup done ($CURRENT_DATE) ($DB_DONE)}
+  MESSAGE=${SLACK_MESSAGE:-PostgreSQL database backup done ($CURRENT_DATE) ($DB_DONE)}
   echo $MESSAGE
   post_to_slack "$MESSAGE" "INFO"
 fi
