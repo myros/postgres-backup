@@ -66,7 +66,6 @@ services:
       SCHEDULE: "@daily"
       SLACK_CHANNEL: "channel"
       SLACK_HOST: "https://hooks.slack.com/services/YOUR_DATA"
-      SLACK_MESSAGE: "Database backup done"
 
 networks:
   default:
