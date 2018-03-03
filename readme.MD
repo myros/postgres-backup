@@ -87,7 +87,7 @@ networks:
 
 ```
   docker run -e PG_HOST=postgres \
-    -e PG_DB=mag_era_dev \
+    -e PG_DB=database_name \
     -e PG_USER=docker \
     -e PG_PASSWORD=docker \
     -e PG_PORT=5432 \
@@ -98,7 +98,7 @@ networks:
 
 ```
   docker run -e PG_HOST=postgres \
-    -e PG_DB=mag_era_dev \
+    -e PG_DB=database_name \
     -e PG_USER=docker \
     -e PG_PASSWORD=docker \
     -e PG_PORT=5432 \
@@ -110,7 +110,7 @@ networks:
 
 ```
   docker run -e PG_HOST=postgres \
-    -e PG_DB=mag_era_dev \
+    -e PG_DB=database_name \
     -e PG_USER=docker \
     -e PG_PASSWORD=docker \
     -e PG_PORT=5432 \
