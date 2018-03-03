@@ -1,13 +1,13 @@
 
-# Docker PostgreSQL Backup
+# Automated Docker PostgreSQL Backup
 
-This image runs pg_dump to backup one or multiple databases using cron job to folder `/backups`
+This Docker image runs pg_dump to backup one or multiple databases using cron job to folder `/backups` and notifies Slack.
 
 If SLACK vars are set, SLACK channel will be notified.
 
 ## Features
 
-* Multiple postgres database backup
+* Backup multiple Postgres databases
 * Slack notification
 * Automatic, scheduled backups
 * Nice documentation and samples
