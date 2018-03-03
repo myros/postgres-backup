@@ -5,6 +5,14 @@ This image runs pg_dump to backup one or multiple databases using cron job to fo
 
 If SLACK vars are set, SLACK channel will be notified.
 
+## Features
+
+* Multiple postgres database backup
+* Slack notification
+* Automatic, scheduled backups
+* Nice documentation and samples
+* Docker-compose file included
+
 ## Usage:
 
     docker run -d \
@@ -128,4 +136,4 @@ To restore database from a certain backup, simply run:
 
 * S3 upload/download
 * sending emails
-* proper restore & import 
+* proper restore & import
