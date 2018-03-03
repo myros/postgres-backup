@@ -48,6 +48,7 @@ ADD entrypoint.sh /entrypoint.sh
 
 ADD run.sh run.sh
 ADD backup.sh backup.sh
+ADD restore.sh restore.sh
 ADD restore.py restore.py
 
 ENTRYPOINT ["/bin/sh", "-c"]
