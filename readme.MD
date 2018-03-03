@@ -75,15 +75,28 @@ networks:
 
 ## One time backup
 
+#### Just backup
 ```
-docker run docker run -e PG_HOST=postgres -e PG_DB=dbname -e PG_USER=user -e PG_PASSWORD=password  myros/docker-postgres-backup sh backup.sh
+docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432  myros/postgres-backup /backup.sh
+```
+
+#### With network
+
+```
+docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432 --network maginfo myros/postgres-backup /backup.sh
+```
+
+#### With network and Slack
+
+```
+docker run -e PG_HOST=postgres -e PG_DB=mag_era_dev -e PG_USER=docker -e PG_PASSWORD=docker -e PG_PORT=5432 -e SLACK_HOST=SLACK_WEBHOOK_URL -e SLACK_CHANNEL=backups --network maginfo myros/postgres-backup /backup.sh
 ```
 
 ## Restore from a backup
 
 To see the list of backups, you can run:
 
-    docker exec docker-postgres-backup ls /backup
+    docker exec docker-postgres-backup ls /backups
 
 To restore database from a certain backup, simply run:
 
