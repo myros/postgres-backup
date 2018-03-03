@@ -43,7 +43,7 @@ PG_DB | the database name(s) to dump. If you want to use multiple databases, del
 
 Variable | Description
 --- | ---
-EXTRA_OPTS | the extra options to pass to pg_dump command
+PG_EXTRA_OPTS | the extra options to pass to pg_dump command
 SCHEDULE | the interval of cron job to run pg_dump. `@daily` by default, which is every day at 00:00.
 
 ### Slack variables (optional)
