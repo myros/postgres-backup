@@ -86,10 +86,14 @@ for db in $DBS; do
   DB_DONE+="$db; "
 done
 
+# post slack message
 if [ ! -z $SLACK_HOST ] && [ ! -z $SLACK_CHANNEL ]; then
   echo "Notifying slack..."
   CURRENT_DATE=`date +%Y.%m.%d`
-  MESSAGE=${SLACK_MESSAGE:-PostgreSQL database backup done ($CURRENT_DATE) ($DB_DONE)}
+  CURRENT_TIME=`date +%H:%M`
+  SLACK="$SLACK\n${DB_DONE}"
+  SLACK="$SLACK\nPostgres Database backup done at ($CURRENT_TIME)"
+  MESSAGE=${SLACK_MESSAGE:-$SLACK}
   echo $MESSAGE
   post_to_slack "$MESSAGE" "INFO"
 fi
