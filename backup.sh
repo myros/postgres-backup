@@ -26,6 +26,9 @@ post_to_slack() {
 }
 
 
+# INIT VARS
+SLACK="PostgreSQL backup started at `date +%m.%d.` `date +%H:%M` \n"
+
 if [ -z "${PG_HOST}" ]; then
   echo "You need to set the PG_HOST environment variable."
   exit 1
@@ -75,7 +78,7 @@ mkdir -p $BACKUP_PATH
 # getting database list
 DBS=$(echo $PG_DB | tr ";" "\n")
 
-declare -a DB_DONE
+DB_DONE="Databases: "
 
 for db in $DBS; do
   #Create dump
@@ -83,7 +86,7 @@ for db in $DBS; do
   FILE_NAME=${db}-`date +%H%M%S`.sql.gz
   echo "pg_dump $POSTGRES_HOST_OPTS $db > $BACKUP_PATH/$FILE_NAME"
   pg_dump $POSTGRES_HOST_OPTS $db > $BACKUP_PATH/$FILE_NAME
-  DB_DONE+="$db; "
+  DB_DONE="$DB_DONE$db; "
 done
 
 # post slack message
